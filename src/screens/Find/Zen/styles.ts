@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { Theme } from "../../constants/Theme";
+import { Theme } from "../../../constants/Theme";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 
 export const Container = styled.View`

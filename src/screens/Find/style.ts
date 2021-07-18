@@ -21,9 +21,12 @@ export const Header = styled.View`
 `;
 
 export const HeaderButton = styled.Pressable`
-  width: ${dp(12.5) + "px"};
-  height: ${hp(6.5) + "px"};
-  background: #f4f4f4;
-  border-radius: ${(dp(12.5) + hp(6.5)) / 2};
+  width: ${dp(12) + "px"};
+  height: ${dp(12) + "px"};
+  background: #edfcef;
+  border-radius: ${dp(12) / 2 + "px"};
   margin-left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

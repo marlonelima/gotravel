@@ -1,105 +1,71 @@
 import React from "react";
 
-import {
-  AboutProfile,
-  BackgroundEffect,
-  Container,
-  Profile,
-  ProfileDescription,
-  ProfileImage,
-  ProfileList,
-  ProfileName,
-  TitleScreen,
-} from "./styles";
+import { Profile, Style } from "./styles";
 import { useNavigation } from "@react-navigation/core";
-import { Image } from "react-native";
-
-const dropShadow = {
-  shadowColor: "#000",
-  shadowOffset: {
-    width: 0,
-    height: 2,
-  },
-  shadowOpacity: 0.25,
-  shadowRadius: 3.84,
-  elevation: 5,
-};
+import { Image, Text, View } from "react-native";
 
 export const ChooseProfileScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <Container>
-      <TitleScreen>Perfis</TitleScreen>
+    <View style={Style.container}>
+      <Text style={Style.titleScreen}>Perfis</Text>
 
-      <ProfileList style={{ elevation: 10 }}>
+      <View style={Style.profileList}>
         <Profile
-          onPress={() => navigation.navigate("Radical")}
+          style={Style.profile}
           profile={"radical"}
-          style={dropShadow}
+          onPress={() => navigation.navigate("Radical")}
         >
-          <AboutProfile>
-            <ProfileName>Radical</ProfileName>
-            <ProfileDescription>Destinos para explorar</ProfileDescription>
-            <ProfileImage>
+          <View>
+            <Text style={Style.profileName}>Radical</Text>
+            <Text style={Style.profileDescription}>Destinos para explorar</Text>
+            <View style={Style.profileImage}>
               <Image
-                style={{ flex: 1, height: undefined, width: undefined }}
+                style={Style.profileImageSrc}
                 source={require("../../assets/profiles/radical.png")}
-                resizeMode="contain"
               />
-            </ProfileImage>
-          </AboutProfile>
+            </View>
+          </View>
         </Profile>
 
         <Profile
-          onPress={() => navigation.navigate("Zen")}
+          style={Style.profile}
           profile={"zen"}
-          style={dropShadow}
+          onPress={() => navigation.navigate("Zen")}
         >
-          <AboutProfile>
-            <ProfileName>Zen</ProfileName>
-            <ProfileDescription>Destinos para contemplar</ProfileDescription>
-            <ProfileImage>
+          <View>
+            <Text style={Style.profileName}>Zen</Text>
+            <Text style={Style.profileDescription}>
+              Destinos para contemplar
+            </Text>
+            <View style={Style.profileImage}>
               <Image
-                style={{ flex: 1, height: undefined, width: undefined }}
+                style={Style.profileImageSrc}
                 source={require("../../assets/profiles/zen.png")}
-                resizeMode="contain"
               />
-            </ProfileImage>
-          </AboutProfile>
+            </View>
+          </View>
         </Profile>
 
         <Profile
-          onPress={() => navigation.navigate("Cultural")}
+          style={Style.profile}
           profile={"cultural"}
-          style={dropShadow}
+          onPress={() => navigation.navigate("Cultural")}
         >
-          <AboutProfile>
-            <ProfileName>Cultural</ProfileName>
-            <ProfileDescription>Destinos para aprender</ProfileDescription>
-            <ProfileImage>
+          <View>
+            <Text style={Style.profileName}>Cultural</Text>
+            <Text style={Style.profileDescription}>Destinos para aprender</Text>
+            <View style={Style.profileImage}>
               <Image
-                style={{ flex: 1, height: undefined, width: undefined }}
+                style={Style.profileImageSrc}
                 source={require("../../assets/profiles/cultural.png")}
-                resizeMode="contain"
               />
-            </ProfileImage>
-          </AboutProfile>
+            </View>
+          </View>
         </Profile>
-      </ProfileList>
-      <BackgroundEffect
-        style={{
-          shadowColor: "#000",
-          shadowOffset: {
-            width: 0,
-            height: 2,
-          },
-          shadowOpacity: 0.25,
-          shadowRadius: 3.84,
-          position: "absolute",
-          elevation: 3,
-        }}
-      />
-    </Container>
+      </View>
+      <View style={Style.backgroundEffect} />
+    </View>
   );
 };

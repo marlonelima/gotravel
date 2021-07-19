@@ -13,7 +13,18 @@ import {
 } from "./styles";
 import { useNavigation } from "@react-navigation/core";
 import { Image } from "react-native";
-import { Shadow } from "react-native-neomorph-shadows";
+
+const dropShadow = {
+  shadowColor: "#000",
+  shadowOffset: {
+    width: 0,
+    height: 2,
+  },
+  shadowOpacity: 0.25,
+  shadowRadius: 3.84,
+  elevation: 5,
+};
+
 export const ChooseProfileScreen = () => {
   const navigation = useNavigation();
 
@@ -21,12 +32,11 @@ export const ChooseProfileScreen = () => {
     <Container>
       <TitleScreen>Perfis</TitleScreen>
 
-      <BackgroundEffect />
-
-      <ProfileList>
+      <ProfileList style={{ elevation: 10 }}>
         <Profile
           onPress={() => navigation.navigate("Radical")}
           profile={"radical"}
+          style={dropShadow}
         >
           <AboutProfile>
             <ProfileName>Radical</ProfileName>
@@ -40,10 +50,15 @@ export const ChooseProfileScreen = () => {
             </ProfileImage>
           </AboutProfile>
         </Profile>
-        <Profile onPress={() => navigation.navigate("Zen")} profile={"zen"}>
+
+        <Profile
+          onPress={() => navigation.navigate("Zen")}
+          profile={"zen"}
+          style={dropShadow}
+        >
           <AboutProfile>
             <ProfileName>Zen</ProfileName>
-            <ProfileDescription>Destinos para explorar</ProfileDescription>
+            <ProfileDescription>Destinos para contemplar</ProfileDescription>
             <ProfileImage>
               <Image
                 style={{ flex: 1, height: undefined, width: undefined }}
@@ -53,13 +68,15 @@ export const ChooseProfileScreen = () => {
             </ProfileImage>
           </AboutProfile>
         </Profile>
+
         <Profile
           onPress={() => navigation.navigate("Cultural")}
           profile={"cultural"}
+          style={dropShadow}
         >
           <AboutProfile>
             <ProfileName>Cultural</ProfileName>
-            <ProfileDescription>Destinos para explorar</ProfileDescription>
+            <ProfileDescription>Destinos para aprender</ProfileDescription>
             <ProfileImage>
               <Image
                 style={{ flex: 1, height: undefined, width: undefined }}
@@ -70,6 +87,19 @@ export const ChooseProfileScreen = () => {
           </AboutProfile>
         </Profile>
       </ProfileList>
+      <BackgroundEffect
+        style={{
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 2,
+          },
+          shadowOpacity: 0.25,
+          shadowRadius: 3.84,
+          position: "absolute",
+          elevation: 3,
+        }}
+      />
     </Container>
   );
 };

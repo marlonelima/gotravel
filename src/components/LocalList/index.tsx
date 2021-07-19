@@ -21,7 +21,7 @@ interface IProps {
 }
 import { useNavigation } from "@react-navigation/native";
 
-export const LocalItem = ({ data }: IProps) => {
+export const LocalList = ({ data }: IProps) => {
   const navigation = useNavigation();
   const renderItem: ListRenderItem<ILocal> = ({ item }) => (
     <Container onPress={() => navigation.navigate("SeeLocation")}>

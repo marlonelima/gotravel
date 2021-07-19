@@ -2,7 +2,7 @@ import React from "react";
 
 import { Container } from "./styles";
 
-import { LocalItem } from "../../../components/LocalItem";
+import { LocalList } from "../../../components/LocalList";
 
 const DATA = [
   {
@@ -22,7 +22,7 @@ const DATA = [
 export const RadicalScreen = () => {
   return (
     <Container>
-      <LocalItem data={DATA} />
+      <LocalList data={DATA} />
     </Container>
   );
 };

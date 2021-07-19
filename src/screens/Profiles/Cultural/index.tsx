@@ -2,10 +2,10 @@ import React from "react";
 import { Text } from "react-native";
 import { Container } from "./styles";
 
-export const TranquiloScreen = () => {
+export const CulturalScreen = () => {
   return (
     <Container>
-      <Text>Estilo tranquilo</Text>
+      <Text>Estilo cultural</Text>
     </Container>
   );
 };

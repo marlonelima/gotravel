@@ -1,9 +1,12 @@
 import React from 'react'
-import { FlatList, ListRenderItem } from 'react-native'
-import { ILocal } from '../../@types/interfaces'
-import { LocalImage } from './styles'
+import { FlatList, Image, ListRenderItem } from 'react-native'
 
-type ILocalImage = Pick<ILocal, 'image'>
+import { ILocal } from '../../@types/interfaces'
+import { Styles } from './styles'
+
+type ILocalImage = Pick<ILocal, 'image'> & {
+  id: string
+}
 
 interface IProps {
   images: ILocalImage[]
@@ -12,8 +15,11 @@ interface IProps {
 export const LocalImageList = ({ images }: IProps) => {
   const LocalImageItem: ListRenderItem<ILocalImage> = ({ item }) => {
     return (
-      <LocalImage
-        source={require("../../assets/example/cachoeira-do-abade.jpg")} 
+      <Image
+        style={Styles.container}
+        source={{
+          uri: item.image
+        }} 
       />
     )
   }
@@ -23,7 +29,7 @@ export const LocalImageList = ({ images }: IProps) => {
       horizontal={true}
       data={images}
       renderItem={LocalImageItem}
-      keyExtractor={(item) => item.image}
+      keyExtractor={(item) => item.id}
       showsHorizontalScrollIndicator={false}
     />
   )  

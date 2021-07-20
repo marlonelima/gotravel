@@ -5,5 +5,6 @@ export const Theme = {
     radical: "#EC728F",
     zen: "#B990E5",
     cultural: "#B7E3BE",
+    text: "#002F36",
   },
 };

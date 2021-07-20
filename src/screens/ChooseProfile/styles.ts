@@ -1,5 +1,8 @@
 import styled from "styled-components/native";
 import { Theme } from "../../constants/Theme";
+
+import { StyleSheet } from "react-native";
+
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as dp,
@@ -9,29 +12,82 @@ interface IProfile {
   profile: string;
 }
 
-export const Container = styled.View`
-  width: 100%;
-  height: 100%;
-`;
-
-export const TitleScreen = styled.Text`
-  font-size: ${`${dp(7)}px`};
-  padding: ${`${hp(3)}px`} ${`${dp(10)}px`};
-`;
-
-export const ProfileList = styled.View`
-  display: flex;
-  flex-direction: column;
-  padding: 0 ${`${dp(10)}px`};
-`;
+export const Style = StyleSheet.create({
+  container: {
+    width: "100%",
+    height: "100%",
+    backgroundColor: Theme.light.background,
+  },
+  titleScreen: {
+    fontSize: dp(8),
+    paddingTop: hp(5),
+    paddingHorizontal: dp(10),
+    paddingBottom: hp(2),
+    color: Theme.light.text,
+  },
+  profile: {
+    width: dp(45),
+    height: hp(24.5),
+    marginBottom: hp(3),
+    borderRadius: 24,
+    paddingTop: dp(3),
+    paddingHorizontal: dp(5),
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  profileList: {
+    flexDirection: "column",
+    paddingHorizontal: dp(10),
+    zIndex: 5,
+    elevation: 10,
+  },
+  profileName: {
+    fontSize: dp(5.7),
+    color: "#fff",
+  },
+  profileDescription: {
+    width: "75%",
+    color: "#fff",
+    fontSize: dp(3),
+  },
+  profileImage: {
+    width: "50%",
+    height: "50%",
+    overflow: "hidden",
+    alignSelf: "flex-end",
+  },
+  profileImageSrc: {
+    flex: 1,
+    height: undefined,
+    width: undefined,
+    resizeMode: "contain",
+  },
+  backgroundEffect: {
+    backgroundColor: "#f3f3f2",
+    width: dp(90),
+    height: "100%",
+    position: "absolute",
+    marginTop: "40%",
+    borderTopRightRadius: 24,
+    zIndex: -1,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 3,
+  },
+});
 
 export const Profile = styled.TouchableOpacity<IProfile>`
-  width: ${`${dp(40)}px`};
-  height: ${`${hp(24)}px`};
-
-  margin-bottom: ${`${hp(5)}px`};
-  border-radius: 24px;
-
   background: ${({ profile }) => {
     if (profile === "radical") return Theme.light.radical;
     if (profile === "zen") return Theme.light.zen;

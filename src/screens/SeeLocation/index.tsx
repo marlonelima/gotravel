@@ -1,19 +1,23 @@
 import { FontAwesome5,  } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import Prismic from '@prismicio/client'
 
 import { LocalImageList } from "../../components/LocalImageList";
+import { prismicClient } from "../../configs/prismic";
 import { Theme } from "../../constants/Theme";
 import {
   DetailItem,
   LikeButton,
   Styles
 } from "./styles";
+import { ILocal2 } from "../../@types/interfaces";
 
 
 export const SeeLocationScreen = () => {
   const navigator = useNavigation()
+  const [localDetails, setLocalDetails] = useState({} as ILocal2)
 
   const imageList = [
     { 
@@ -25,6 +29,22 @@ export const SeeLocationScreen = () => {
       id: 'imagem-2'
     }
   ]
+
+  useEffect(() => {
+    const predicate = Prismic.predicates.at('my.local.energy', 'Radical')
+    
+    async function fetchLocalDetails() {
+      const result = await prismicClient.queryFirst(predicate)
+
+      setLocalDetails(result.data)
+    }
+
+    fetchLocalDetails()
+  }, [])
+
+  if (!localDetails.name) {
+    return <View></View>
+  }
 
   return (
     <ScrollView style={Styles.container}>
@@ -44,31 +64,30 @@ export const SeeLocationScreen = () => {
       <View style={Styles.content}>
         <View style={Styles.titleColumn}>
           <Text style={Styles.title}>
-            Centro Cultural{'\n'}
-            Oscar Niemyer
+            {localDetails.name}
           </Text>
           <LikeButton onPress={() => {}} color={Theme.light.radical}>
             <FontAwesome5 name="heart" size={30} color="white" />
           </LikeButton>
         </View>
-        <Text style={Styles.cityText}>Pirenópolis</Text>
+        <Text style={Styles.cityText}>
+          {localDetails.city}
+        </Text>
 
         <View style={Styles.detailsList}>
           <DetailItem color={Theme.light.radical}>
-            Radical
+            {localDetails.energy}
           </DetailItem>
           <DetailItem color={Theme.light.primary}>
-            Poucos casos de COVID
+            {localDetails.risk === "0" && 'Poucos casos de COVID'}
           </DetailItem>
         </View>
 
         <Text style={Styles.description}>
-          Mussum Ipsum, cacilds vidis litro abertis. Mé faiz elementum girarzis, nisi eros vermeio. 
-          Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Nec orci ornare consequat. 
-          Praesent lacinia ultrices consectetur. Sed non ipsum felis.
+          {localDetails.description[0].text}
         </Text>
 
-        <LocalImageList images={imageList} />
+        <LocalImageList images={localDetails.images} />
       </View>
     </ScrollView>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, Image, ListRenderItem } from "react-native";
+import { FlatList, Image, ListRenderItem, TextInput, TouchableOpacity } from "react-native";
 
 import {
   Container,
@@ -10,6 +10,7 @@ import {
   SafetyText,
   ImageBanner,
   LocalInfo,
+  CityInfo,
 } from "./styles";
 
 import { FontAwesome5 } from "@expo/vector-icons";
@@ -28,12 +29,18 @@ export const LocalList = ({ data }: IProps) => {
       <ImageBanner>
         <Image
           source={require("../../assets/example/cachoeira-do-abade.jpg")}
-          resizeMode="cover"
+          resizeMode="contain"
         />
       </ImageBanner>
+
       <LocalInfo>
         <Name>Cachoeira do Abade</Name>
-        <City>Pirenópolis</City>
+
+        <CityInfo>
+          <City>Pirenópolis</City>
+          <City>Natureza, rio</City>
+        </CityInfo>
+
         <Row>
           <Safety>
             <FontAwesome5 name="head-side-mask" size={18} color="#09d94e" />

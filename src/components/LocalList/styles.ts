@@ -6,12 +6,13 @@ import {
 } from "react-native-responsive-screen";
 
 export const Container = styled.TouchableOpacity`
-  width: 92%;
+  width: 100%;
   height: ${hp(12) + "px"};
   display: flex;
   flex-direction: row;
-  padding: 0 3%;
   margin-bottom: 20px;
+  border-radius: 14px;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.40);
 `;
 
 export const ImageBanner = styled.View`
@@ -30,12 +31,18 @@ export const LocalInfo = styled.View`
 
 export const Name = styled.Text`
   font-size: ${dp(5) + "px"};
-
   font-weight: 700;
 `;
 
 export const City = styled.Text`
   font-size: ${dp(4) + "px"};
+  color: rgba(96, 32, 49, .6);
+`;
+
+export const CityInfo = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const Row = styled.View`

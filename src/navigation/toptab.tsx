@@ -1,11 +1,9 @@
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { Dimensions } from "react-native";
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
+
 import { Theme } from "../constants/Theme";
-import { RadicalScreen } from "../screens/Profiles/Radical";
-import { ZenScreen } from "../screens/Profiles/Zen";
-import { CulturalScreen } from "../screens/Profiles/Cultural";
+import { LocalsScreen } from "../screens/Locals";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -21,8 +19,6 @@ export const TopTab = () => (
       },
     }}
   >
-    <Tab.Screen name="Radical" component={RadicalScreen} />
-    <Tab.Screen name="Zen" component={ZenScreen} />
-    <Tab.Screen name="Cultural" component={CulturalScreen} />
+    <Tab.Screen name="Locals" component={LocalsScreen} />
   </Tab.Navigator>
 );

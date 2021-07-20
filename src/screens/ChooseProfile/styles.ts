@@ -1,6 +1,4 @@
 import styled from "styled-components/native";
-import { Theme } from "../../constants/Theme";
-
 import { StyleSheet } from "react-native";
 
 import {
@@ -8,9 +6,7 @@ import {
   widthPercentageToDP as dp,
 } from "react-native-responsive-screen";
 
-interface IProfile {
-  profile: string;
-}
+import { Theme } from "../../constants/Theme";
 
 export const Style = StyleSheet.create({
   container: {
@@ -86,6 +82,10 @@ export const Style = StyleSheet.create({
     elevation: 3,
   },
 });
+
+interface IProfile {
+  profile: string;
+}
 
 export const Profile = styled.TouchableOpacity<IProfile>`
   background: ${({ profile }) => {

@@ -1,11 +1,11 @@
-import React from 'react'
-import { FlatList, Image, ListRenderItem } from 'react-native'
+import React from "react";
+import { FlatList, Image, ListRenderItem } from "react-native";
 
-import { IGalleryImage } from '../../@types/interfaces'
-import { Styles } from './styles'
+import { IGalleryImage } from "../../@types/interfaces";
+import { Styles } from "./styles";
 
 interface IProps {
-  images: IGalleryImage[]
+  images: IGalleryImage[];
 }
 
 export const LocalImageList = ({ images }: IProps) => {
@@ -13,13 +13,14 @@ export const LocalImageList = ({ images }: IProps) => {
     return (
       <Image
         style={Styles.container}
+        key={item.image.url}
         source={{
-          uri: item.image.url
-        }} 
+          uri: item.image.url,
+        }}
       />
-    )
-  }
-  
+    );
+  };
+
   return (
     <FlatList
       horizontal={true}
@@ -28,5 +29,5 @@ export const LocalImageList = ({ images }: IProps) => {
       keyExtractor={(item) => item.image.url}
       showsHorizontalScrollIndicator={false}
     />
-  )  
-}
+  );
+};

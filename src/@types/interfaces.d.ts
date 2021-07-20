@@ -1,24 +1,17 @@
-export interface ILocal {
-  name: string;
-  city: string;
-  image: string;
-  safety: string;
-}
-
 export interface IImage {
-  url: string
+  url: string;
 }
 
 export interface IGalleryImage {
-  image: IImage
+  image: IImage;
 }
 
-export interface ILocal2 {
+export interface ILocal {
   banner: IImage;
   city: string;
   covid: string;
-  energy: 'Radical' | 'Zen' | 'Cultural';
-  risk: '0' | '1' | '2';
+  energy: "Radical" | "Zen" | "Cultural";
+  risk: "0" | "1" | "2";
   name: string;
   images: IGalleryImage[];
   description: {

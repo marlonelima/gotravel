@@ -15,7 +15,7 @@ export const ChooseProfileScreen = () => {
         <Profile
           style={Style.profile}
           profile={"radical"}
-          onPress={() => navigation.navigate("Radical")}
+          onPress={() => navigation.navigate("Locals", { profile: "Radical" })}
         >
           <View>
             <Text style={Style.profileName}>Radical</Text>
@@ -32,7 +32,7 @@ export const ChooseProfileScreen = () => {
         <Profile
           style={Style.profile}
           profile={"zen"}
-          onPress={() => navigation.navigate("Zen")}
+          onPress={() => navigation.navigate("Locals", { profile: "Zen" })}
         >
           <View>
             <Text style={Style.profileName}>Zen</Text>
@@ -51,7 +51,7 @@ export const ChooseProfileScreen = () => {
         <Profile
           style={Style.profile}
           profile={"cultural"}
-          onPress={() => navigation.navigate("Cultural")}
+          onPress={() => navigation.navigate("Locals", { profile: "Cultural" })}
         >
           <View>
             <Text style={Style.profileName}>Cultural</Text>

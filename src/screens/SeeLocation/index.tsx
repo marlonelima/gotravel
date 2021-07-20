@@ -19,17 +19,7 @@ export const SeeLocationScreen = () => {
   const navigator = useNavigation()
   const [localDetails, setLocalDetails] = useState({} as ILocal2)
 
-  const imageList = [
-    { 
-      image: 'https://images.adsttc.com/media/images/5bfd/2598/08a5/e51c/3500/05d8/newsletter/05503PR061127_011D.jpg?1543316877',
-      id: 'imagem-1'
-    },
-    { 
-      image: 'https://live.staticflickr.com/8205/8249952374_4ca9412d20_c.jpg',
-      id: 'imagem-2'
-    }
-  ]
-
+  
   useEffect(() => {
     const predicate = Prismic.predicates.at('my.local.energy', 'Radical')
     
@@ -55,7 +45,7 @@ export const SeeLocationScreen = () => {
         <Image
           style={Styles.localImage}
           source={{
-            uri: imageList[0].image
+            uri: localDetails.banner.url
           }}
           resizeMode="cover"
         />      
@@ -78,7 +68,7 @@ export const SeeLocationScreen = () => {
           <DetailItem color={Theme.light.radical}>
             {localDetails.energy}
           </DetailItem>
-          <DetailItem color={Theme.light.primary}>
+          <DetailItem color="#09d94e">
             {localDetails.risk === "0" && 'Poucos casos de COVID'}
           </DetailItem>
         </View>

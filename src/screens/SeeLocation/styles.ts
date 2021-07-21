@@ -8,7 +8,8 @@ import {
 import { Theme } from "../../constants/Theme";
 
 interface CustomProps {
-  color: string;
+  color?: string;
+  energy?: "Radical" | "Zen" | "Cultural";
 }
 
 export const DetailItem = styled.Text<CustomProps>`
@@ -16,14 +17,44 @@ export const DetailItem = styled.Text<CustomProps>`
   font-size: ${dp(4)}px;
 
   padding: ${dp(2)}px ${dp(4)}px;
-  background: ${(ctx) => ctx.color};
+  background: ${(ctx) => {
+    if (ctx.energy) {
+      switch (ctx.energy) {
+        case 'Cultural':
+          return Theme.light.cultural
+        case 'Radical':
+          return Theme.light.radical
+        case 'Zen':
+          return Theme.light.zen  
+        default:
+          return '#000'
+      }
+    }
+
+    return ctx.color
+  }};
 
   color: white;
   border-radius: ${dp(5)}px;
 `;
 
 export const LikeButton = styled.TouchableOpacity<CustomProps>`
-  background: ${(ctx) => ctx.color};
+  background: ${(ctx) => {
+    if (ctx.energy) {
+      switch (ctx.energy) {
+        case 'Cultural':
+          return Theme.light.cultural
+        case 'Radical':
+          return Theme.light.radical
+        case 'Zen':
+          return Theme.light.zen  
+        default:
+          return '#000'
+      }
+    }
+
+    return ctx.color
+  }};
 
   padding: ${dp(2.5)}px;
   border-radius: 999px;

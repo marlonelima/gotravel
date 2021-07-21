@@ -39,7 +39,7 @@ export const SeeLocationScreen = ({ route }: IProps) => {
       <View style={Styles.content}>
         <View style={Styles.titleColumn}>
           <Text style={Styles.title}>{route.params.data.name}</Text>
-          <LikeButton onPress={() => {}} color={Theme.light.radical}>
+          <LikeButton onPress={() => {}} energy={route.params.data.energy}>
             <FontAwesome5 name="heart" size={24} color="white" />
           </LikeButton>
         </View>
@@ -47,7 +47,7 @@ export const SeeLocationScreen = ({ route }: IProps) => {
         <Text style={Styles.cityText}>{route.params.data.city}</Text>
 
         <View style={Styles.detailsList}>
-          <DetailItem color={Theme.light.radical}>
+          <DetailItem energy={route.params.data.energy}>
             {route.params.data.energy}
           </DetailItem>
           <DetailItem color="#09d94e">
